@@ -1,0 +1,15 @@
+module.exports = {
+  'putIo': {
+    'oauth2key': '{{PUTIO_OAUTH2KEY}}'
+  },
+  'aria2c': {
+    'path': 'aria2c',
+    'rpcHost': '{{ARIA2_PORT_6800_TCP_ADDR}}:{{ARIA2_PORT_6800_TCP_PORT}}', // you might run into problems if you use 'localhost' here
+    'useRPC': true
+  },
+  'pushpin': {
+    'enabled': false,
+    'userkey': 'user key from here: https://pushover.net/ ',
+    'appkey': 'create an key here: https://pushover.net/apps/build '
+  }
+};
