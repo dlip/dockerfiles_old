@@ -13,7 +13,7 @@ Prepare local data folders:
 Run with the following command, replacing <config_location> and <data_location> with the directories above.
 
 ```sh
-docker run -i -t -v <config_location>:/config -v <data_location>:/data -p 6800:6800 dlip/centos-base-aria2
+docker run -i -t -v <config_location>:/config -v <data_location>:/data -p 6800:6800 dlip/centos-aria2
 ```
 
 You can control Aria2 via a WebUI such as [webui-aria2](http://ziahamza.github.io/webui-aria2/).

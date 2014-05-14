@@ -13,7 +13,7 @@ Prepare local data folders:
 Run with the following command, replacing <config_location> and <data_location> with the directories above. Note: this first run might crash after creating the config, but just run it again.
 
 ```sh
-docker run -i -t -v <config_location>:/config -v <data_location>:/data -p 32400:32400 dlip/centos-base-plex
+docker run -i -t -v <config_location>:/config -v <data_location>:/data -p 32400:32400 dlip/centos-plex
 ```
 
 Then visit `http://localhost:32400/web/index.html` in your browser.

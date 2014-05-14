@@ -1,4 +1,4 @@
-FROM       dlip/centos-base-nodejs
+FROM       dlip/centos-nodejs
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 
 RUN git clone https://github.com/343max/put-io-sync.git && cd put-io-sync && \

@@ -1,4 +1,4 @@
-FROM       dlip/centos-base-ruby
+FROM       dlip/centos-ruby
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v4.1.0-2014-05-12
 
 RUN yum install -y sqlite-devel mysql-devel postgresql-devel && \
