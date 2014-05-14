@@ -1,0 +1,35 @@
+# Plex Media Server Config file.
+
+# Set Plex User
+PLEX_USER=root
+# Set home of Plex Media Server 
+PLEX_MEDIA_SERVER_HOME=/usr/lib/plexmediaserver
+
+# Set home for Plex metadata
+# PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="`getent passwd $PLEX_USER|awk -F : '{print $6}'`/Library/Application Support"
+
+# the number of plugins that can run at the same time
+PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
+
+# where the mediaserver should store the transcodes
+PLEX_MEDIA_SERVER_TMPDIR=/tmp
+
+# Enable syslog for Plex logging.
+# uncomment to enable
+# export PLEX_MEDIA_SERVER_USE_SYSLOG=true
+
+# uncomment to set it to alternative support dir, eg. /opt/plex
+# NOTE: Plex user must be able to write to this dir
+#
+# PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/opt/plex/Library/Application Support"
+PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config"
+
+export LD_LIBRARY_PATH="${PLEX_MEDIA_SERVER_HOME}"
+export TMPDIR="${PLEX_MEDIA_SERVER_TMPDIR}"
+export PLEX_MEDIA_SERVER_HOME=$PLEX_MEDIA_SERVER_HOME
+export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=$PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR
+export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=$PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS
+export PLEX_MEDIA_SERVER_TMPDIR=$PLEX_MEDIA_SERVER_TMPDIR
+export LD_LIBRARY_PATH=$PLEX_MEDIA_SERVER_HOME
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
