@@ -1,0 +1,7 @@
+#!/usr/bin/python
+from jinja2 import Template
+import sys
+import os
+fo = open(sys.argv[1], "r")
+t = Template(fo.read())
+print t.render(env=os.environ)

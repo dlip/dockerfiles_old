@@ -1,7 +1,9 @@
 #!/bin/bash
 
-for f in $(bash -c "cd /nginx-templates/; find * &> /dev/null"); do
-  mustache.sh < $f > /etc/nginx/sites-enabled/$f
+jinja2 /etc/nginx/nginx.conf.jinja2 > /etc/nginx/nginx.conf
+
+for f in $(bash -c "cd /nginx-templates/; find * 2> /dev/null"); do
+  jinja2 "$f" > /etc/nginx/conf.d/$f
 done
 
 exec nginx

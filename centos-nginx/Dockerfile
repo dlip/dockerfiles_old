@@ -3,10 +3,13 @@ MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
-RUN yum -y install nginx && \
+RUN yum -y install nginx python-jinja2 && \
   yum clean all
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+ENV NGINX_ENV development
+
+ADD nginx.conf.jinja2 /etc/nginx/nginx.conf.jinja2
+ADD jinja2 /usr/bin/jinja2
 
 VOLUME ["/nginx-templates", "/data", "/var/log/nginx"]
 
