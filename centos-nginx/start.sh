@@ -1,4 +1,7 @@
 #!/bin/bash
-templater /nginx-templates /etc/nginx/sites-enabled
 
-nginx
+for f in $(bash -c "cd /nginx-templates/; find * &> /dev/null"); do
+  mustache.sh < $f > /etc/nginx/sites-enabled/$f
+done
+
+exec nginx

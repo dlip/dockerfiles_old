@@ -8,7 +8,7 @@ RUN yum -y install nginx && \
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-VOLUME ["/nginx-templates", "/data", "/etc/nginx/sites-enabled", "/var/log/nginx"]
+VOLUME ["/nginx-templates", "/data", "/var/log/nginx"]
 
 ADD start.sh /start.sh
 

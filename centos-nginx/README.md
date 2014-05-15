@@ -6,7 +6,7 @@ docker run -d -p 80:80 dlip/centos-nginx
 
 #### Templating
 
-Files in /nginx-templates will have environment variables replaced and copied to /etc/nginx/sites-enabled
+Files in /nginx-templates will have environment variables replaced and copied to /etc/nginx/sites-enabled using [mustache.sh](https://github.com/rcrowley/mustache.sh)
 
 #### Attach persistent/shared directories
 
