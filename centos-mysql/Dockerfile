@@ -4,7 +4,7 @@ MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 RUN yum install -y mysql-server && \
     yum clean all 
 
-ENV MYSQL_DATABASE my_database
+ENV MYSQL_DATABASE data
 ENV MYSQL_USER admin
 ENV MYSQL_PASSWORD adminpass
 
