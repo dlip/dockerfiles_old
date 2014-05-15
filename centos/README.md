@@ -2,7 +2,7 @@
 
 ### Usage
 
-docker run -d -p 80:80 dlip/centos-base
+docker run -d -p 80:80 dlip/centos
 
 #### Extra programs
 

@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo

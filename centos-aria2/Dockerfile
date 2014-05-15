@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 
 RUN rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt

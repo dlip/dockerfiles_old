@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v2014.1.4-0.0.1
 
 #RUN rpm -Uvh http://ftp.linux.ncsu.edu/pub/epel/6/i386/epel-release-6-8.noarch.rpm

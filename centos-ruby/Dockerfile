@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v2.1.1-2014-05-12
 
 RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel \

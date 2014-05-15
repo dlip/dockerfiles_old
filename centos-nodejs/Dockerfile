@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 
 RUN yum install -y gcc-c++ && \

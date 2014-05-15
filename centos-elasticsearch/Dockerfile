@@ -1,4 +1,4 @@
-FROM       dlip/centos-base
+FROM       dlip/centos
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v1.1.1-2014.05.12
 
 RUN yum install -y java-1.7.0-openjdk && \
