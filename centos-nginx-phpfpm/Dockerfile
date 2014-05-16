@@ -8,8 +8,11 @@ RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
 RUN yum --enablerepo=remi,remi-php55 install nginx -y php-fpm php-common \
-    php-pecl-apc php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml && \
+    php-pecl-apc php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongo php-ldap \
+    php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml && \
     yum clean all
+
+RUN echo "TLS_REQCERT     never" >> /etc/openldap/ldap.conf
 
 ADD site /etc/nginx/conf.d/default.conf
 
