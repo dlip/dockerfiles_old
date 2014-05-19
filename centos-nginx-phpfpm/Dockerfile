@@ -12,12 +12,10 @@ RUN yum --enablerepo=remi,remi-php55 install nginx -y php-fpm php-common \
     php-sqlite php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml && \
     yum clean all
 
-RUN echo "TLS_REQCERT     never" >> /etc/openldap/ldap.conf
-
 ADD site /etc/nginx/conf.d/default.conf
 
 ADD index.php /app/public/index.php
 
-ADD start-phpfpm.sh /start-phpfpm.sh
+ADD container-start.sh /usr/bin/container-start.sh
 
-CMD ["/bin/bash", "/start-phpfpm.sh"]
+CMD ["/bin/bash", "/usr/bin/container-boot.sh"]

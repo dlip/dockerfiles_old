@@ -8,8 +8,6 @@ ENV MYSQL_DATABASE data
 ENV MYSQL_USER admin
 ENV MYSQL_PASSWORD adminpass
 
-VOLUME /var/lib/mysql
-
 EXPOSE 3306
 ADD start.sh /start.sh
 

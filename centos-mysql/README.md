@@ -12,6 +12,12 @@ Password: adminpass
 docker run -d dlip/centos-mysql
 ```
 
+Add volume to store data
+
+```sh
+docker run -d -v /mnt/mysql:/var/lib/mysql dlip/centos-mysql
+```
+
 ### Import sql file on start
 
 ```sh

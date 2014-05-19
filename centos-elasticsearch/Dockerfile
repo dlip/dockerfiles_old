@@ -9,7 +9,6 @@ RUN mkdir -p /tmp/elasticsearch-build && cd /tmp/elasticsearch-build && \
   tar -zxf elasticsearch-1.1.1.tar.gz && mv elasticsearch-1.1.1 elasticsearch && \
   mv elasticsearch /usr/local/share && cd / && rm -rf /tmp/elasticsearch-build
 
-VOLUME /usr/local/share/elasticsearch/data/elasticsearch
 EXPOSE 9200
 
 CMD ["/usr/local/share/elasticsearch/bin/elasticsearch"]
