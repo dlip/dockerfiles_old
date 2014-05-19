@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash -c "minga /etc/minga/openssh /etc/minga/openssh /etc/openssh '$OPENSSH_DEFAULT_OPT' '$OPENSSH_OPT'"
+bash -c "minga /etc/minga/openldap /etc/minga/openldap /etc/openldap '$OPENLDAP_DEFAULT_OPT' '$OPENLDAP_OPT'"

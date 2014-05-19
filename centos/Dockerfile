@@ -11,7 +11,7 @@ ADD scripts/ /usr/bin
 
 ADD templates/ /etc/minga
 
-ENV OPENSSH_DEFAULT_OPT {\
+ENV OPENLDAP_DEFAULT_OPT {\
   "basedn": "dc=localdomain",\
   "server": "ldap.localdomain",\
   "tls_enabled": true,\
