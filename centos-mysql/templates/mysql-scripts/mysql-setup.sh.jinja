@@ -3,22 +3,27 @@
 service mysqld start
 
 {% for username, password in users.iteritems() %}
-  {% for hostname in [ 'localhost', '%' ] %}
-    mysql -e "CREATE USER '{{ username }}'@'{{ hostname }}' IDENTIFIED BY '{{ password }}';"
-  {% endfor %}
+  user_exists=`mysql -e "SELECT user FROM mysql.user WHERE user = '{{ username }}'" | wc -c`
+  if [ $user_exists = 0 ]; then
+    {% for hostname in [ 'localhost', '%' ] %}
+      echo "Creating user {{ username }}@{{ hostname }}"
+      mysql -e "CREATE USER '{{ username }}'@'{{ hostname }}' IDENTIFIED BY '{{ password }}';"
+    {% endfor %}
+  fi
 {% endfor %}
 
 {% for database, dbopt in databases.iteritems() %}
 if [[ ! -d /var/lib/mysql/{{ database }} ]] ; then
+  echo "Creating database {{ database }}"
   mysql -e "CREATE DATABASE {{ database }} CHARACTER SET utf8 COLLATE utf8_general_ci"
 
   {% for username in dbopt.users %}
     {% for hostname in [ 'localhost', '%' ] %}
-      mysql -e "GRANT ALL ON {{ database }}.* TO '{{ username }}'@'{{ hostname }}' IDENTIFIED BY '{{ password }}' WITH GRANT OPTION; FLUSH PRIVILEGES"
+      mysql -e "GRANT ALL ON {{ database }}.* TO '{{ username }}'@'{{ hostname }}' WITH GRANT OPTION; FLUSH PRIVILEGES"
     {% endfor %}
 
     {% if dbopt.import_file %}
-      echo "Importing {{ dbopt.import_file }}"
+      echo "Importing {{ dbopt.import_file }} into {{ database }}"
       mysql {{ database }} < '{{ dbopt.import_file }}'
     {% endif %}
 
