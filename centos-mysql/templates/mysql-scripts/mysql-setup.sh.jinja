@@ -1,0 +1,30 @@
+#!/bin/bash
+
+service mysqld start
+
+{% for username, password in users.iteritems() %}
+  {% for hostname in [ 'localhost', '%' ] %}
+    mysql -e "CREATE USER '{{ username }}'@'{{ hostname }}' IDENTIFIED BY '{{ password }}';"
+  {% endfor %}
+{% endfor %}
+
+{% for database, dbopt in databases.iteritems() %}
+if [[ ! -d /var/lib/mysql/{{ database }} ]] ; then
+  mysql -e "CREATE DATABASE {{ database }} CHARACTER SET utf8 COLLATE utf8_general_ci"
+
+  {% for username in dbopt.users %}
+    {% for hostname in [ 'localhost', '%' ] %}
+      mysql -e "GRANT ALL ON {{ database }}.* TO '{{ username }}'@'{{ hostname }}' IDENTIFIED BY '{{ password }}' WITH GRANT OPTION; FLUSH PRIVILEGES"
+    {% endfor %}
+
+    {% if dbopt.import_file %}
+      echo "Importing {{ dbopt.import_file }}"
+      mysql {{ database }} < '{{ dbopt.import_file }}'
+    {% endif %}
+
+  {% endfor %}
+{% endfor %}
+
+fi
+
+service mysqld stop

@@ -4,11 +4,25 @@ MAINTAINER Dane Lipscombe <dane@lipscombe.com.au>
 RUN yum install -y mysql-server && \
     yum clean all 
 
-ENV MYSQL_DATABASE data
-ENV MYSQL_USER admin
-ENV MYSQL_PASSWORD adminpass
+ENV MYSQL_DEFAULT_OPT {\
+  "root_password": "ilikerandompasswords",\
+  "users": {\
+    "user": "userpass" \
+  },\
+  "databases": {\
+    "data": {\
+      "users": [\
+        "user"\
+      ],\
+      "import_file": false\
+    }\
+  }\
+}
 
-EXPOSE 3306
-ADD start.sh /start.sh
+ADD templates /etc/minga
 
-CMD ["/bin/bash", "/start.sh"]
+RUN echo "bash -c \"minga /etc/minga/mysql-scripts /etc/minga/mysql-scripts /usr/bin '\$MYSQL_DEFAULT_OPT' '\$MYSQL_OPT'\"" >> /usr/bin/container-config.sh
+
+ADD container-start.sh /usr/bin/container-start.sh
+
+CMD ["/bin/bash", "/usr/bin/container-boot.sh"]
