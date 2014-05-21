@@ -28,8 +28,8 @@ if [[ ! -d /var/lib/mysql/{{ database }} ]] ; then
     {% endif %}
 
   {% endfor %}
+fi
 {% endfor %}
 
-fi
 
 service mysqld stop
