@@ -35,7 +35,7 @@ ENV NGINX_DEFAULT_OPT {\
 ] \
 }
 
-VOLUME ["/nginx-templates", "/data", "/var/log/nginx"]
+VOLUME ["/data", "/var/log/nginx"]
 
 RUN echo "bash -c \"minga /etc/minga/nginx /etc/minga/nginx /etc/nginx '\$NGINX_DEFAULT_OPT' '\$NGINX_OPT'\"" >> /usr/bin/container-config.sh && \ 
     echo "exec nginx" >> /usr/bin/container-start.sh
