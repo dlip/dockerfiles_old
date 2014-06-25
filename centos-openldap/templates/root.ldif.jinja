@@ -1,0 +1,13 @@
+dn: {{ basedn }}
+objectClass: dcObject
+objectClass: organization
+dc: localhost
+o: localhost
+
+dn: ou=groups,{{ basedn }}
+ou: groups
+objectClass: organizationalUnit
+
+dn: ou=people,{{ basedn }}
+ou: people
+objectClass: organizationalUnit
