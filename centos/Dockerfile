@@ -1,5 +1,7 @@
 FROM       centos
-MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v6.5-2014.05.19
+MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v6.5 updated 2014.06.25
+
+RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
 RUN yum update -y && \
     yum install -y tar which git vim-minimal python-jinja2 && \

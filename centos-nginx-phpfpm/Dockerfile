@@ -1,10 +1,6 @@
 FROM       dlip/centos-nginx
 MAINTAINER Dane Lipscombe <dane@lipscombe.com.au> v5.5.12-2014.5.15
 
-## Remi Dependency on CentOS 6 and Red Hat (RHEL) 6 ##
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
- 
-## CentOS 6 and Red Hat (RHEL) 6 ##
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
 RUN yum --enablerepo=remi,remi-php55 install nginx -y php-fpm php-common \
