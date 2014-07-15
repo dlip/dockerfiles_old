@@ -1,8 +1,8 @@
 dn: {{ basedn }}
 objectClass: dcObject
 objectClass: organization
-dc: localhost
-o: localhost
+dc: {{ dc }}
+o: {{ dc }}
 
 dn: ou=groups,{{ basedn }}
 ou: groups
