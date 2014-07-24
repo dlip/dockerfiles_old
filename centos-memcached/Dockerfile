@@ -12,7 +12,7 @@ ENV MEMCACHED_DEFAULT_OPT {\
 "port" : "11211",\
 "udp_port":  "11211",\
 "listen":  "0.0.0.0",\
-"maxconn":  "1024",\
+"maxconn":  "1024"\
 }
 
 RUN echo "bash -c \"minga /etc/minga/memcached /etc/minga/memcached /usr/bin '\$MEMCACHED_DEFAULT_OPT' '\$MEMCACHED_OPT'\"" >> /usr/bin/container-config.sh
